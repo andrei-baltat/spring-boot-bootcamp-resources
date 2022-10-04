@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
     <head>
         <title>Shows</title>
     </head>
@@ -11,31 +11,31 @@
             <th>Episode</th>
             <th>Rating</th>
           </tr>
-          <tr th:object="${movie1}">
-            <td th:text="*{title}"></td>
-            <td th:text="*{episode}"></td>
-            <td th:text="*{rating}"></td>
+          <tr>
+            <td>Breaking Bad</td>
+            <td>Ozymandias</td>
+            <td>10.0</td>
           </tr>
-            <tr th:object="${movie2}">
-                <td th:text="*{title}"></td>
-                <td th:text="*{episode}"></td>
-                <td th:text="*{rating}"></td>
-            </tr>
-            <tr th:object="${movie3}">
-                <td th:text="*{title}"></td>
-                <td th:text="*{episode}"></td>
-                <td th:text="*{rating}"></td>
-            </tr>
-            <tr th:object="${movie4}">
-                <td th:text="*{title}"></td>
-                <td th:text="*{episode}"></td>
-                <td th:text="*{rating}"></td>
-            </tr>
-            <tr th:object="${movie5}">
-                <td th:text="*{title}"></td>
-                <td th:text="*{episode}"></td>
-                <td th:text="*{rating}"></td>
-            </tr>
+          <tr>
+            <td>Attack on Titan</td>
+            <td>Hero</td>
+            <td>9.9</td>
+          </tr>
+          <tr>
+            <td>Attack on Titan</td>
+            <td>Perfect Game</td>
+            <td>9.9</td>
+          </tr>
+          <tr>
+            <td>Star Wars: The Clone Wars</td>
+            <td>Victory and Death</td>
+            <td>9.9</td>
+          </tr>
+          <tr>
+            <td>Mr. Robot</td>
+            <td>407 Proxy Authentication Required</td>
+            <td>9.9</td>
+          </tr>
         </table>        
     </body>
 </html>
