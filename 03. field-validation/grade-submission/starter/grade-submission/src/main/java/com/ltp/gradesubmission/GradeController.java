@@ -5,9 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 public class GradeController {
@@ -22,7 +25,11 @@ public class GradeController {
     }
 
     @PostMapping("/handleSubmit")
-    public String submitForm(Grade grade) {
+    // BindingResult tine validarile si trebuie sa fie dupa @valid parameter
+    public String submitForm(@Valid Grade grade, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) return "form";
+        System.out.println(grade.getName());
+        System.out.println(grade.getSubject());
         int index = getGradeIndex(grade.getId());
         if (index == Constants.NOT_FOUND) {
             studentGrades.add(grade);

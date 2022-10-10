@@ -31,7 +31,8 @@ public class ContactController {
     private ContactService contactService;
 
     @Operation(summary = "Retrieves contacts", description = "Provides a list of all contacts")
-    @ApiResponse(responseCode = "200", description = "Successful retrieval of contacts", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Contact.class))))
+    @ApiResponse(responseCode = "200", description = "Successful retrieval of contacts",
+            content = @Content(array = @ArraySchema(schema = @Schema(implementation = Contact.class))))
     @GetMapping(value = "/contact/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Contact>> getContacts() {
         List<Contact> contacts = contactService.getContacts();
@@ -40,8 +41,10 @@ public class ContactController {
 
     @Operation(summary = "Get contact by Id", description = "Returns a contact based on an ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "404", description = "Contact doesn't exist", content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
-        @ApiResponse(responseCode = "200", description = "Successful retrieval of contact", content = @Content(schema = @Schema(implementation = Contact.class))),
+        @ApiResponse(responseCode = "404", description = "Contact doesn't exist",
+                content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
+        @ApiResponse(responseCode = "200", description = "Successful retrieval of contact",
+                content = @Content(schema = @Schema(implementation = Contact.class))),
     })
     @GetMapping(value = "/contact/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Contact> getContact(@PathVariable String id) {
@@ -52,7 +55,8 @@ public class ContactController {
     @Operation(summary = "Create Contact", description = "Creates a contact from the provided payload")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "201", description = "Successful creation of contact"),
-        @ApiResponse(responseCode = "400", description = "Bad request: unsuccessful submission", content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+        @ApiResponse(responseCode = "400", description = "Bad request: unsuccessful submission",
+                content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
      })
     @PostMapping(value = "/contact", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Contact> createContact(@Valid @RequestBody Contact contact) {
