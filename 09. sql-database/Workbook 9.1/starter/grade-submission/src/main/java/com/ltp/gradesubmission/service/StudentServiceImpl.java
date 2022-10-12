@@ -3,7 +3,9 @@ package com.ltp.gradesubmission.service;
 import java.util.List;
 
 import com.ltp.gradesubmission.entity.Student;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StudentServiceImpl implements StudentService {
 
     @Override
